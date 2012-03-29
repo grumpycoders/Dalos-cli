@@ -1,0 +1,3 @@
+[submodule "Balau"]
+	path = Balau
+	url = git.grumpycoder.net:/pub/repo.git/Balau
