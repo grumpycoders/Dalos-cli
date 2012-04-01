@@ -129,7 +129,7 @@ Balau:
 	$(MAKE) -C Balau
 
 $(TARGET): Balau $(ALL_OBJECTS)
-	$(LD) $(LDFLAGS) -o $@ $(ALL_OBJECTS) ./Balau/LuaJIT/src/libluajit.a ./Balau/libBalau.a $(LDLIBS)
+	$(LD) $(LDFLAGS) -o $@ $(ALL_OBJECTS) ./Balau/libBalau.a ./Balau/LuaJIT/src/libluajit.a $(LDLIBS)
 
 dep: $(ALL_DEPS)
 
