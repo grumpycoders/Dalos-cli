@@ -37,7 +37,7 @@ static void showhelp(const char * binname, bool longhelp) {
 }
 
 void MainTask::Do() {
-    std::vector<String> execs;
+    std::list<String> execs;
     bool interactive = false;
     bool todo = false;
     bool error = false;
