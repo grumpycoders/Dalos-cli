@@ -25,7 +25,7 @@ LDFLAGS += -g
 endif
 
 INCLUDES = includes Balau/includes Balau/libcoro Balau/libeio Balau/libev Balau/LuaJIT/src
-LIBS = z
+LIBS = z readline
 
 ifeq ($(SYSTEM),Darwin)
     CC = clang
