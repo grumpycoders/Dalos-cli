@@ -42,10 +42,12 @@ all: dep $(TARGET)
 strip: $(TARGET)
 	$(STRIP) $(TARGET)
 
-Balau:
+Balau: Balau/libBalau.a
+
+Balau/libBalau.a:
 	$(MAKE) -C Balau
 
-$(TARGET): Balau $(ALL_OBJECTS)
+$(TARGET): Balau/libBalau.a $(ALL_OBJECTS)
 	$(LD) $(LDFLAGS) -o $@ $(ALL_OBJECTS) ./Balau/libBalau.a ./Balau/LuaJIT/src/libluajit.a $(LDLIBS)
 
 dep: $(ALL_DEPS)
