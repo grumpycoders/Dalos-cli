@@ -105,12 +105,12 @@ void MainTask::Do() {
             break;
         }
 
-        if (*line_read)
-            add_history(line_read);
+        if (!*line_read)
+            continue;
 
-        String line = line_read;
+        add_history(line_read);
 
-        LuaExecString luaExecString(line);
+        LuaExecString luaExecString(line_read);
         luaExecString.exec(luaMainTask);
     }
 }

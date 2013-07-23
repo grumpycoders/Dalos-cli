@@ -8,7 +8,7 @@ CPPFLAGS += -g -DDEBUG
 LDFLAGS += -g
 endif
 
-INCLUDES = includes Balau/includes Balau/libcoro Balau/libeio Balau/libev Balau/LuaJIT/src
+INCLUDES = includes Balau/includes Balau/libcoro Balau/libeio Balau/libev Balau/LuaJIT/src Dalos-modules/includes
 LIBS = z readline
 
 ifeq ($(SYSTEM),Darwin)
@@ -27,10 +27,12 @@ CPPFLAGS += $(CPPFLAGS_NO_ARCH) $(ARCH_FLAGS)
 LDFLAGS += $(ARCH_FLAGS)
 LDLIBS = $(addprefix -l, $(LIBS))
 
-vpath %.cc src
+vpath %.cc src Dalos-modules/src
 
 DALOS_CLI_SOURCES = \
-Dalos-cli.cc
+Dalos-cli.cc \
+\
+Readline.cc \
 
 ALL_OBJECTS = $(addsuffix .o, $(notdir $(basename $(DALOS_CLI_SOURCES))))
 ALL_DEPS = $(addsuffix .dep, $(notdir $(basename $(DALOS_CLI_SOURCES))))
