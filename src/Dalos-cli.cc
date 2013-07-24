@@ -74,16 +74,14 @@ void MainTask::Do() {
         IO<Input> file(new Input(argv[optind++]));
         LuaExecFile luaExecFile(file);
         luaExecFile.exec(luaMainTask);
-        if (luaExecFile.gotError())
-            return;
+        luaExecFile.throwError();
     }
 
     for (auto & exec : execs) {
         todo = true;
         LuaExecString luaExecString(exec);
         luaExecString.exec(luaMainTask);
-        if (luaExecString.gotError())
-            return;
+        luaExecString.throwError();
     }
 
     if (!todo && !interactive)
@@ -105,5 +103,6 @@ void MainTask::Do() {
 
         LuaExecString luaExecString(line_read);
         luaExecString.exec(luaMainTask);
+        luaExecString.throwError();
     }
 }
