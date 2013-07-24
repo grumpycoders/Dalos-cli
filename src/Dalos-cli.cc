@@ -72,6 +72,7 @@ void MainTask::Do() {
     while (optind < argc) {
         todo = true;
         IO<Input> file(new Input(argv[optind++]));
+        file->open();
         LuaExecFile luaExecFile(file);
         luaExecFile.exec(luaMainTask);
         luaExecFile.throwError();
