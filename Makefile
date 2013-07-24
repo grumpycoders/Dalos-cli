@@ -9,7 +9,7 @@ LDFLAGS += -g
 endif
 
 INCLUDES = includes Balau/includes Balau/libcoro Balau/libeio Balau/libev Balau/LuaJIT/src Dalos-modules/includes
-LIBS = z readline
+LIBS = z edit
 
 ifeq ($(SYSTEM),Darwin)
     LIBS += pthread iconv

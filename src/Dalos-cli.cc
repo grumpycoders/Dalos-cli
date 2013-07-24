@@ -1,10 +1,10 @@
 #include <getopt.h>
-#include <readline/readline.h>
-#include <readline/history.h>
 #include <Main.h>
 #include <TaskMan.h>
 #include <LuaTask.h>
 #include <Input.h>
+#include <BStdIO.h>
+#include "BReadline.h"
 
 using namespace Balau;
 
@@ -92,23 +92,16 @@ void MainTask::Do() {
     if (!interactive)
         return;
 
-    char prompt[3] = "> ", * line_read = NULL;
+    String line_read;
+    Readline rl("Dalos-cli", new StdIN());
 
     for (;;) {
-        if (line_read)
-            free(line_read);
+        line_read = rl.gets();
 
-        line_read = readline(prompt);
-
-        if (!line_read) {
+        if (rl.gotEOF()) {
             Printer::print("\n");
             break;
         }
-
-        if (!*line_read)
-            continue;
-
-        add_history(line_read);
 
         LuaExecString luaExecString(line_read);
         luaExecString.exec(luaMainTask);
