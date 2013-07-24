@@ -39,12 +39,16 @@ ALL_DEPS = $(addsuffix .dep, $(notdir $(basename $(DALOS_CLI_SOURCES))))
 
 TARGET=Dalos-cli.$(BINEXT)
 
-all: dep $(TARGET)
+all: dep Balau $(TARGET)
 
 strip: $(TARGET)
 	$(STRIP) $(TARGET)
 
-Balau: Balau/libBalau.a
+Balau:
+	$(MAKE) -C Balau
+
+tests:
+	$(MAKE) -C Balau tests
 
 Balau/libBalau.a:
 	$(MAKE) -C Balau
@@ -66,4 +70,4 @@ clean:
 	rm -f $(ALL_OBJECTS) $(ALL_DEPS) $(TARGET)
 	$(MAKE) -C Balau clean
 
-.PHONY: clean strip Balau
+.PHONY: clean strip Balau tests all
