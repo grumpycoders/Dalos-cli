@@ -70,4 +70,12 @@ clean:
 	rm -f $(ALL_OBJECTS) $(ALL_DEPS) $(TARGET)
 	$(MAKE) -C Balau clean
 
-.PHONY: clean strip Balau tests all
+deepclean:
+	git clean -f -d -x
+	git submodule foreach git clean -f -d -x
+	git submodule foreach git submodule foreach git clean -f --d -x
+	git reset --hard HEAD
+	git submodule foreach git reset --hard HEAD
+	git submodule foreach git submodule foreach git reset --hard HEAD
+
+.PHONY: clean deepclean strip Balau tests all
