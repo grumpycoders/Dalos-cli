@@ -1,11 +1,11 @@
 include Balau/common.mk
 
 ifeq ($(DEBUG),)
-CPPFLAGS += -g -O3 -DNDEBUG
-LDFLAGS += -g
+CPPFLAGS += -g3 -gdwarf-2 -O3 -DNDEBUG
+LDFLAGS += -g3 -gdwarf-2
 else
-CPPFLAGS += -g -DDEBUG
-LDFLAGS += -g
+CPPFLAGS += -g3 -gdwarf-2 -DDEBUG
+LDFLAGS += -g3 -gdwarf-2
 endif
 
 INCLUDES = includes Balau/includes Balau/libcoro Balau/libeio Balau/libev Balau/LuaJIT/src Dalos-modules/includes
