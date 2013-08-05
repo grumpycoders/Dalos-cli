@@ -104,6 +104,16 @@ void MainTask::Do() {
 
         LuaExecString luaExecString(line_read);
         luaExecString.exec(luaMainTask);
-        luaExecString.throwError();
+        try {
+            luaExecString.throwError();
+        }
+        catch (GeneralException & e) {
+            const char * details = e.getDetails();
+            if (details)
+                Printer::log(M_WARNING, "  %s", details);
+            auto trace = e.getTrace();
+            for (String & str : trace)
+                Printer::log(M_DEBUG, "%s", str.to_charp());
+        }
     }
 }
