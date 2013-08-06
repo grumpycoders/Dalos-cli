@@ -48,8 +48,10 @@ strip: $(TARGET)
 Balau:
 	$(MAKE) -C Balau
 
-tests:
+tests: $(TARGET)
 	$(MAKE) -C Balau tests
+	./$(TARGET) tests/alltests.lua tests/runtests.lua
+	./$(TARGET) tests/alltests.lua -e 'runtests()'
 
 Balau/libBalau.a:
 	$(MAKE) -C Balau
