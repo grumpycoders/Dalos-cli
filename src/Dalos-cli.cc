@@ -5,6 +5,7 @@
 #include <Input.h>
 #include <BStdIO.h>
 #include "BReadline.h"
+#include "LuaLoad.h"
 
 using namespace Balau;
 
@@ -35,6 +36,16 @@ static void showhelp(const char * binname, bool longhelp) {
 "\n"
 );
 }
+
+namespace {
+
+class DalosInit : public LuaExecCell {
+    virtual void run(Lua & L) override {
+        registerLuaLoad(L);
+    }
+};
+
+};
 
 void MainTask::Do() {
     std::list<String> execs;
@@ -67,6 +78,12 @@ void MainTask::Do() {
             showhelp(argv[0], false);
             return;
         }
+    }
+
+    {
+        DalosInit dalosInit;
+        dalosInit.exec(luaMainTask);
+        dalosInit.throwError();
     }
 
     while (optind < argc) {

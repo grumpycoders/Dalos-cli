@@ -33,6 +33,7 @@ DALOS_CLI_SOURCES = \
 Dalos-cli.cc \
 \
 Readline.cc \
+LuaLoad.cc \
 
 ALL_OBJECTS = $(addsuffix .o, $(notdir $(basename $(DALOS_CLI_SOURCES))))
 ALL_DEPS = $(addsuffix .dep, $(notdir $(basename $(DALOS_CLI_SOURCES))))
