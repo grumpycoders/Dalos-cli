@@ -3,4 +3,9 @@ function test2()
     i:open()
     i:close()
     i:destroy()
+
+    i = Input.new "tests/test1.lua"
+    i = nil
+
+    collectgarbage()
 end
