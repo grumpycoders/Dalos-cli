@@ -17,7 +17,7 @@ ifeq ($(SYSTEM),Darwin)
 endif
 
 ifeq ($(SYSTEM),Linux)
-    LIBS += pthread dl
+    LIBS += pthread dl util
     CONFIG_H = Balau/linux-config.h
 endif
 
@@ -57,7 +57,7 @@ Balau/libBalau.a:
 	$(MAKE) -C Balau
 
 $(TARGET): Balau/libBalau.a $(ALL_OBJECTS)
-	$(LD) $(LDFLAGS) -o $@ $(ALL_OBJECTS) ./Balau/libBalau.a ./Balau/LuaJIT/src/libluajit.a $(LDLIBS)
+	$(LD) $(LDFLAGS) -o $@ $(ALL_OBJECTS) ./Balau/libBalau.a ./Balau/LuaJIT/src/libluajit.a ./Balau/libtomcrypt/libtomcrypt.a ./Balau/libtommath/libtommath.a $(LDLIBS)
 
 dep: $(ALL_DEPS)
 
