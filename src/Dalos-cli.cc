@@ -4,6 +4,7 @@
 #include <LuaTask.h>
 #include <Input.h>
 #include <BStdIO.h>
+#include <LuaBigInt.h>
 #include <LuaHandle.h>
 #include "BReadline.h"
 #include "LuaLoad.h"
@@ -43,6 +44,7 @@ namespace {
 class DalosInit : public LuaExecCell {
     virtual void run(Lua & L) override {
         registerLuaLoad(L);
+        registerLuaBigInt(L);
         registerLuaHandle(L);
     }
 };

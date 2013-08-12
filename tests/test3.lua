@@ -1,16 +1,10 @@
 function test3()
-    print "testing rsa"
-    local bits = 2048
-    local e = 65537
-    local key = rsa:gen_key(bits, 65537)
-    --for k, v in pairs(key) do print(k.."=lcrypt.bigint(lcrypt.fromhex('"..lcrypt.tohex(tostring(v)).."'))") end
-
-    msg = lcrypt.random(bits/8 - 5)
-    s = rsa:sign_oaep(msg, 'jello', key)
-    if rsa:verify_oaep(s, msg, 'jello', key) then
-        print "ok"
-    else
-        --for k, v in pairs(key) do print(k.."=lcrypt.bigint(lcrypt.fromhex('"..lcrypt.tohex(tostring(v)).."'))") end
-        error "rsa failure"
-    end
+    local x = BigInt.new "1234"
+    local y = BigInt.new "5678"
+    local z = x + y
+    if tostring(z) ~= "6912" then error "bigint1" end
+    -- unlike PHP, Lua is smarter. An object and a number aren't the same things, thus aren't equal.
+    if z == 6912 then error "bigint2" end
+    -- this is the proper comparison.
+    if z ~= BigInt.new(6912) then error "bigint3" end
 end
