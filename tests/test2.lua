@@ -15,5 +15,6 @@ function test2()
     print(i:readU8())
     print(i:readU16())
     print(i:readU32())
+    print(i:readU64())
     i:destroy()
 end
