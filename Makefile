@@ -76,7 +76,7 @@ clean:
 deepclean:
 	git clean -f -d -x
 	git submodule foreach git clean -f -d -x
-	git submodule foreach git submodule foreach git clean -f --d -x
+	git submodule foreach git submodule foreach git clean -f -d -x
 	git reset --hard HEAD
 	git submodule foreach git reset --hard HEAD
 	git submodule foreach git submodule foreach git reset --hard HEAD
