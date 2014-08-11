@@ -17,7 +17,7 @@ ifeq ($(SYSTEM),Darwin)
 endif
 
 ifeq ($(SYSTEM),Linux)
-    LIBS += pthread dl
+    LIBS += pthread dl curl cares
     CONFIG_H = Balau/linux-config.h
 endif
 
