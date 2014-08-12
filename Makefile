@@ -1,5 +1,7 @@
 include Balau/common.mk
 
+CPPFLAGS += -DUSE_HISTEDIT
+
 ifeq ($(DEBUG),)
 CPPFLAGS += -g3 -gdwarf-2 -O3 -DNDEBUG
 LDFLAGS += -g3 -gdwarf-2

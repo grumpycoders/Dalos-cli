@@ -3,7 +3,6 @@
 #include <TaskMan.h>
 #include <LuaTask.h>
 #include <Input.h>
-#include <BStdIO.h>
 #include <LuaBigInt.h>
 #include <LuaHandle.h>
 #include "BReadline.h"
@@ -103,11 +102,7 @@ void MainTask::Do() {
         return;
 
     String line_read;
-#ifdef _WIN32
-    Readline rl("Dalos-cli", new Buffer());
-#else
-    Readline rl("Dalos-cli", new StdIN());
-#endif
+    Readline rl("Dalos-cli");
 
     for (;;) {
         line_read = rl.gets();

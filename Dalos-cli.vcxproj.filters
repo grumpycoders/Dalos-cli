@@ -7,6 +7,18 @@
     <Filter Include="Headers">
       <UniqueIdentifier>{51cc51bb-e800-452c-b8d9-4dba017fe7e3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Third Party">
+      <UniqueIdentifier>{e7efc113-5dc1-4da7-bbde-248d77ae4575}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Third Party\editline">
+      <UniqueIdentifier>{dde49012-3348-4bf7-a596-7ba474e5b636}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Third Party\editline\Headers">
+      <UniqueIdentifier>{bbe337bf-92ed-4499-9356-b0d3bbedc503}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Third Party\editline\Source">
+      <UniqueIdentifier>{cc453958-fd7c-423b-8e3c-46a0e6a54bbe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Dalos-cli.cc">
@@ -18,6 +30,12 @@
     <ClCompile Include="Dalos-modules\src\Readline.cc">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Dalos-modules\editline\src\editline.c">
+      <Filter>Third Party\editline\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Dalos-modules\editline\src\win32.c">
+      <Filter>Third Party\editline\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dalos-modules\includes\BReadline.h">
@@ -25,6 +43,12 @@
     </ClInclude>
     <ClInclude Include="Dalos-modules\includes\LuaLoad.h">
       <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Dalos-modules\editline\src\editline.h">
+      <Filter>Third Party\editline\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Dalos-modules\editline\include\editline.h">
+      <Filter>Third Party\editline\Headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
