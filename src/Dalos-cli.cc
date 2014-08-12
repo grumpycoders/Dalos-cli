@@ -11,16 +11,6 @@
 
 using namespace Balau;
 
-int getopt_flag = 0;
-
-struct option long_options[] = {
-    { "help",           0, NULL, 'h' },
-    { "verbose",        0, NULL, 'v' },
-    { "exec",           1, NULL, 'e' },
-    { "interactive",    0, NULL, 'i' },
-    { NULL,             0, NULL,  0  },
-};
-
 static void showhelp(const char * binname, bool longhelp) {
     Printer::print(
 "Usage:\n"
@@ -62,7 +52,7 @@ void MainTask::Do() {
 
     LuaMainTask * luaMainTask = TaskMan::registerTask(new LuaMainTask);
 
-    while ((c = getopt_long(argc, argv, "Hhve:i", long_options, NULL)) != EOF) {
+    while ((c = getopt(argc, argv, "Hhve:i")) != EOF) {
         switch (c) {
         case 'h':
         case 'H':
@@ -113,7 +103,11 @@ void MainTask::Do() {
         return;
 
     String line_read;
+#ifdef _WIN32
+    Readline rl("Dalos-cli", new Buffer());
+#else
     Readline rl("Dalos-cli", new StdIN());
+#endif
 
     for (;;) {
         line_read = rl.gets();

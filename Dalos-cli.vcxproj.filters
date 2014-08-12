@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{d557d81b-89dc-4275-a0f0-961b3cf41a6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{51cc51bb-e800-452c-b8d9-4dba017fe7e3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Dalos-cli.cc">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Dalos-modules\src\LuaLoad.cc">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Dalos-modules\src\Readline.cc">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Dalos-modules\includes\BReadline.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Dalos-modules\includes\LuaLoad.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
