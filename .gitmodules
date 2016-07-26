@@ -1,6 +1,6 @@
 [submodule "Balau"]
 	path = Balau
-	url = git.grumpycoder.net:/pub/repo.git/Balau
+	url = ../Balau.git
 [submodule "Dalos-modules"]
 	path = Dalos-modules
-	url = git.grumpycoder.net:/pub/repo.git/Dalos-modules
+	url = ../Dalos-modules.git
