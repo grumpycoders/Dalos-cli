@@ -50,8 +50,11 @@ strip: $(TARGET)
 Balau:
 	$(MAKE) -C Balau
 
-tests: all
-	$(MAKE) -C Balau tests
+build_tests: all
+	$(MAKE) -C Balau build_tests
+
+test: all
+	$(MAKE) -C Balau test
 	./$(TARGET) tests/alltests.lua tests/runtests.lua
 	./$(TARGET) tests/alltests.lua -e 'runtests()'
 
@@ -83,4 +86,4 @@ deepclean:
 	git submodule foreach git reset --hard HEAD
 	git submodule foreach git submodule foreach git reset --hard HEAD
 
-.PHONY: clean deepclean strip Balau tests all
+.PHONY: clean deepclean strip Balau test build_tests all
