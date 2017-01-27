@@ -11,7 +11,7 @@ LDFLAGS += -g3 -gdwarf-2
 endif
 
 INCLUDES = includes Balau/includes Balau/libcoro Balau/libeio Balau/libev Balau/LuaJIT/src Dalos-modules/includes
-LIBS = z edit
+LIBS = z edit cares curl
 
 ifeq ($(SYSTEM),Darwin)
     LIBS += pthread iconv
